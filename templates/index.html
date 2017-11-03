@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Great Number Game</title>
+</head>
+<body>
+	<h1>Welcome to the Great Number Game</h1>
+	{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="alert alert-danger" style="background-color: {{changecolor}}">
+        {% for message in messages %}
+          {{message}}
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+	<form action="/compare" method="post">
+		What number between 0-100 do you think the computer guessed?<input type="text" name="userNumber">
+		<input type = "submit" value = "compare">
+	</form>
+
+	<a href = '/reset'>Reset</a>
+</body>
+</html>
